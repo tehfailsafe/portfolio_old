@@ -1,5 +1,5 @@
-h2 Projects
-- @projects.each do |project|
-  .large-6.columns
-    p = link_to project.title, project
-    = image_tag project.thumbnail
+.row
+  - @projects.each do |project|
+    .medium-6.columns
+      project_title = project.title
+      = link_to image_tag(project.thumbnail), project

@@ -7,4 +7,5 @@ ActiveAdmin.register Project do
         li link_to("Videos", admin_project_videos_path(project))
       end
     end
+
 end
