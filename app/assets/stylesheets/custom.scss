@@ -1,3 +1,43 @@
+@import "foundation/functions";
+$primary: #2697e8;
+
+body { 
+  margin-top: 80px;
+}
+
+.header{
+  border-bottom: 5px solid $primary;
+  background-color: #111;
+}
+
 iframe{
   width:100%;
 }
+
+.project {
+  margin-bottom: 20px;
+  .overlay{
+    display:none;
+    position: relative;
+    background-color: rgba($primary, .75);
+    position: absolute;
+    height: 100%;
+    width: calc(100% - 20px);
+    
+
+
+    .project_title{
+      position: relative;
+      top:50%;
+      color:#fff;
+      text-align: center;
+    }
+  }
+
+
+ 
+}
+
+.project:hover .overlay{
+    display:block;
+  }

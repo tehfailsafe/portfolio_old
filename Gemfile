@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'slim-rails'
 gem 'foundation-rails'
 gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'masonry-rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

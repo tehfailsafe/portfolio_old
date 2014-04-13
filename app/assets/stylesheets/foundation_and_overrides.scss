@@ -36,7 +36,7 @@
 // $include-xl-html-grid-classes: false;
 
 // $row-width: rem-calc(1000);
-// $column-gutter: rem-calc(30);
+$column-gutter: rem-calc(20);
 // $total-columns: 12;
 
 // We use these to control various global styles
@@ -1202,4 +1202,4 @@
 // $include-table-visibility-classes: true;
 // $include-legacy-visibility-classes: true;
 
-@import 'foundation';
+ @import 'foundation';

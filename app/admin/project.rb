@@ -1,6 +1,6 @@
 ActiveAdmin.register Project do
 
-  permit_params :title, :content, :thumbnail 
+  permit_params :title, :content, :thumbnail, :sort
 
   sidebar "Project Details", only: [:show, :edit] do
       ul do
