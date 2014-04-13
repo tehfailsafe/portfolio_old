@@ -12,8 +12,7 @@ $(function(){
     $container.masonry({
       itemSelector: '.project',
       isFitWidth: true,
-      isAnimating: true,
-      isResizable: true
+      isAnimating: true
     });
   });
 });
