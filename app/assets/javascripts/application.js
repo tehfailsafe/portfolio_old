@@ -1,20 +1,27 @@
 //= require jquery
-//= require jquery_ujs
-//= require foundation
-//= require masonry/jquery.masonry
 //= require_tree .
 
 
+
+
 $(function(){ 
-  $(document).foundation();
-  var $container = $('#masonry-container');
-  $container.imagesLoaded( function(){
-    $container.masonry({
+  // $(document).foundation();
+
+  var $grid = $('.filterable-grid'),
+      $sizer = $grid.find('.shuffle__sizer');
+  $grid.imagesLoaded( function(){
+    $grid.shuffle({
       itemSelector: '.project',
-      isFitWidth: true,
-      isAnimating: true
+      sizer: $sizer
     });
   });
+  
 });
 
 
+
+if (!Array.prototype.last){
+    Array.prototype.last = function(){
+        return this[this.length - 1];
+    };
+}

@@ -1,5 +1,12 @@
+.projectitle
+  .row
+    large-12.columns
+      h2 = @project.title
+
 .row
-  .large-4.columns
-    p = @project.content
-  .large-8.columns
+  / .large-4.columns
+  /   p = @project.content
+  / .large-8.columns
+  .large-12.columns
     = render @videos
+    = render @photos

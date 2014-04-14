@@ -3,5 +3,6 @@ Portfolio::Application.routes.draw do
   ActiveAdmin.routes(self)
   root 'projects#index'
   resources :projects, only: [:show, :index]
+  get 'about' => 'static#about'
 
 end
