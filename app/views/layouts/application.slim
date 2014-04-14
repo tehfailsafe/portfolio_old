@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 html lang="en"
   head
     meta charset="utf-8"
@@ -7,16 +8,27 @@ html lang="en"
     = stylesheet_link_tag    "application"
     = javascript_include_tag "vendor/modernizr"
     = csrf_meta_tags
-    
-    <script type="text/javascript" src="//use.typekit.net/kvd1lqt.js"></script>
-    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+    script type="text/javascript" src="//use.typekit.net/kvd1lqt.js"
+    script type="text/javascript" try{Typekit.load();}catch(e){}
+
   body
     .contain-to-grid.fixed.header
       .row
         .large-4.columns = link_to root_path do
           = image_tag("header_Logo.png")
+        .large-4.columns.right
+          .head.right = link_to "About", about_path
     = yield 
     
 
   = javascript_include_tag "application"
 
+  #footer
+    .row
+      .large-4.columns
+        .head Contact
+        p.subhead <a href='mailto:mike@failsafedesign.com'>mike@failsafedesign.com</a>
+      .large-4.columns
+        .head Built with
+        p.subhead Rails | shuffle.js

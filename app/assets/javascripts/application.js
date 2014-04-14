@@ -1,6 +1,20 @@
-//= require jquery
+
 //= require_tree .
 
+function stickFooter(){
+  var footer = $("#footer");
+  var pos = footer.position();
+  var height = $(window).height();
+  height = height - pos.top;
+  height = height - footer.height();
+  if (height > 0) {
+      footer.css({
+          'margin-top': height + 'px',
+          'opacity': 1
+      });
+  }
+
+}
 
 
 
@@ -16,7 +30,12 @@ $(function(){
     });
   });
   
+
+  setTimeout(stickFooter, 100);
+
+
 });
+
 
 
 
@@ -25,3 +44,5 @@ if (!Array.prototype.last){
         return this[this.length - 1];
     };
 }
+
+
