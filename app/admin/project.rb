@@ -1,5 +1,14 @@
 ActiveAdmin.register Project do
   permit_params :title, :content, :thumbnail, :sort, :tag_list
+  index do
+    column :title
+    column :tag_list
+    column :sort
+    default_actions
+  end
+
+  config.sort_order = "sort_asc"
+  config.filters = false
 
   form do |f|
     f.inputs do
