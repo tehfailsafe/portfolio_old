@@ -16,6 +16,7 @@ ActiveAdmin.register Project do
       f.input :content
       f.input :thumbnail
       f.input :tag_list
+      f.input :sort
     end
     # f.collection_select :tag_id, Tag.order(:name), :id, :name, {}, {multiple:true}
 

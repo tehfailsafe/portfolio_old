@@ -1,10 +1,12 @@
 .row
-  #loading.text-center
-    img src="http://jimpunk.net/Loading/wp-content/uploads/loading20.gif"
   .filter.12.columns
     .item.all.active All
     - @tags.each do |tag|
       .item class="#{tag.name.parameterize}" = tag.name
+
+  #loading.text-center
+    img src="http://jimpunk.net/Loading/wp-content/uploads/loading20.gif"
+    
   .large-12.columns.filterable-grid.fadeable
     - @projects.each do |project|
       .project.medium-4.columns data-groups="#{ project.tags.map{|t| t.name.parameterize}}"
