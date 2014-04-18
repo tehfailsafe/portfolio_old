@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
 
 
-gem 'unicorn'
+# gem 'unicorn'
 # gem 'thin'
+gem 'puma'
 gem 'quiet_assets', :group => :development
 gem 'rails', '4.0.2'
 gem 'pg'
