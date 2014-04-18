@@ -1,29 +1,26 @@
-# if ENV["RAILS_ENV"] == "development"
-#   worker_processes 1
-# else
-#   worker_processes 3
-# end
+worker_processes 3
 
-# timeout 30
-# preload_app true
 
-# before_fork do |server, worker|
+timeout 30
+preload_app true
 
-#   Signal.trap 'TERM' do
-#     puts 'Unicorn master intercepting TERM and sending myself QUIT instead'
-#     Process.kill 'QUIT', Process.pid
-#   end
+before_fork do |server, worker|
 
-#   defined?(ActiveRecord::Base) and
-#     ActiveRecord::Base.connection.disconnect!
-# end
+  Signal.trap 'TERM' do
+    puts 'Unicorn master intercepting TERM and sending myself QUIT instead'
+    Process.kill 'QUIT', Process.pid
+  end
 
-# after_fork do |server, worker|
+  defined?(ActiveRecord::Base) and
+    ActiveRecord::Base.connection.disconnect!
+end
 
-#   Signal.trap 'TERM' do
-#     puts 'Unicorn worker intercepting TERM and doing nothing. Wait for master to sent QUIT'
-#   end
+after_fork do |server, worker|
 
-#   defined?(ActiveRecord::Base) and
-#     ActiveRecord::Base.establish_connection
-# end
+  Signal.trap 'TERM' do
+    puts 'Unicorn worker intercepting TERM and doing nothing. Wait for master to sent QUIT'
+  end
+
+  defined?(ActiveRecord::Base) and
+    ActiveRecord::Base.establish_connection
+end
