@@ -13,9 +13,12 @@ body{
 }
 
 .header{
-  border-bottom: 5px solid $primary;
-  background-color: $bg-color;
+  border-top: 3px solid $primary;
+  // background-color: $bg-color;
+  background-image: url('new_york.jpg');
   line-height: 60px;
+  height:400px;
+  position: relative;
 
   a{
     color: #fff;
@@ -125,6 +128,13 @@ body{
   opacity: 0;
   transition: opacity .25s ease;
   padding-top:20px;
+
+
+  .svg { 
+    fill: #fff; 
+    width: 40px;
+    height: 100%;
+  }  
 }
 
 .head{

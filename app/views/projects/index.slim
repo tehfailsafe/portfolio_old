@@ -9,13 +9,13 @@
 
   .large-12.columns.filterable-grid.fadeable
     - @projects.each do |project|
-      .project.medium-4.columns data-groups="#{ project.tags.map{|t| t.name.parameterize}}"
+      .project.medium-6.columns data-groups="#{ project.tags.map{|t| t.name.parameterize}}"
         a href='#{project_path(project.id)}'
           .overlay
             .project_title = project.title
             .project_tags = project.tag_list
           = image_tag project.thumbnail
 
-    .shuffle__sizer.medium-4.columns
+    .shuffle__sizer.medium-6.columns
 
 
