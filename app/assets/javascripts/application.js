@@ -20,22 +20,19 @@ $(function(){
   // $(document).foundation();
   var $grid = $('.filterable-grid'),
       $sizer = $grid.find('.shuffle__sizer');
-
-  $grid.on('done.shuffle layout.shuffle', function() {
-    stickFooter();
-  });
-
-  
-  $grid.imagesLoaded( function(){
-    $grid.shuffle({
-      itemSelector: '.project',
-      sizer: $sizer
+  if ($grid){
+    $grid.on('done.shuffle layout.shuffle', function() {
+      stickFooter();
     });
-  });
 
-
-  
-
+    
+    $grid.imagesLoaded( function(){
+      $grid.shuffle({
+        itemSelector: '.project',
+        sizer: $sizer
+      });
+    });
+  }
   // setTimeout(stickFooter, 100);
 
 

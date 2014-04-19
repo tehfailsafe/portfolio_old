@@ -16,6 +16,9 @@ gem 'foundation-rails'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'acts-as-taggable-on'
 
+# gem 'rails-api'
+
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
