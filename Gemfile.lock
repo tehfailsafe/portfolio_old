@@ -47,6 +47,7 @@ GEM
       actionpack (>= 3, < 5)
       activerecord (>= 3, < 5)
       activesupport (>= 3, < 5)
+    angularjs-rails (1.2.3)
     arbre (1.0.1)
       activesupport (>= 3.0.0)
     arel (4.0.2)
@@ -102,6 +103,8 @@ GEM
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.9.2)
+    ngmin-rails (0.4.0)
+      rails (>= 3.1)
     orm_adapter (0.5.0)
     passenger (4.0.41)
       daemon_controller (>= 1.2.0)
@@ -186,10 +189,12 @@ PLATFORMS
 DEPENDENCIES
   activeadmin!
   acts-as-taggable-on
+  angularjs-rails (>= 1.2.0.rc1)
   coffee-rails (~> 4.0.0)
   foundation-rails
   jbuilder (~> 1.2)
   jquery-rails
+  ngmin-rails
   passenger
   pg
   quiet_assets

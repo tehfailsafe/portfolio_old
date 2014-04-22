@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+  source 'https://rubygems.org'
 
 
 gem "passenger"
@@ -15,6 +15,8 @@ gem 'slim-rails'
 gem 'foundation-rails'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'acts-as-taggable-on'
+gem 'angularjs-rails', '>= 1.2.0.rc1'
+gem 'ngmin-rails'
 
 # gem 'rails-api'
 
