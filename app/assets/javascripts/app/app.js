@@ -1,17 +1,15 @@
-angular.module('portfolio', ['ngRoute', 'portfolio.controllers'])
+var app = angular.module('portfolio', ['ngRoute', 'ngResource'])
   .config(function($routeProvider){
     $routeProvider
       .when('/', {
         templateUrl: '/projects.html',
         controller: 'ProjectsController'
       })
-      .otherwise({redirectTo: '/projects.html'});
+      .otherwise({redirectTo: '/'});
 });
 
 
-angular.module('portfolio.controllers', [])
-  .controller('ProjectsController', function($scope) {
-    $scope.foo = "bar";
-    console.log("i am the contorller");
-  });
-
+app.config(function($httpProvider) {
+  var authToken = $("meta[name=\"csrf-token\"]").attr("content");
+  return $httpProvider.defaults.headers.common["X-CSRF-TOKEN"] = authToken;
+});

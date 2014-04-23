@@ -1,7 +1,4 @@
-// console.log('controller');
-
-// app.controller('ProjectsController', function($scope) {
-//   $scope.foo = "bar";
-//   console.log("i am the ctonoler");
-// });
+app.controller('ProjectsController', function($scope, Project) {
+    $scope.projects = Project.query();
+  });
 

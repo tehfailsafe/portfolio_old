@@ -2,6 +2,8 @@
 //= require angular-route
 //= require angular-animate
 //= require angular-resource
+//= require app/app
+//= require app/services
 //= require_tree .
 
 function stickFooter(){
