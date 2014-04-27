@@ -1,15 +1,17 @@
+class Api::ProjectsController < ApplicationController
+  respond_to :json
 
-  class Api::ProjectsController < ApplicationController
-    respond_to :json
-
-    def index
-      respond_with(Tag.all)
-    end
+  def index
+    # respond_with(Project.all)
+    render json: Project.all, root: false
   end
+  
+  def show
+    render json: Project.find(params[:id]), root: false, serializer: ProjectShowSerializer
+  end
+end
 
-  # def show
-  #   respond_with(Project.find(params[:id]))
-  # end
+
 
   # def create
   #   @project = Project.new(project_params)

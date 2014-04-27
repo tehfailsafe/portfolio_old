@@ -7,6 +7,7 @@ Portfolio::Application.routes.draw do
   get 'doughnut' => 'doughnut#index'
 
   namespace :api, defaults: { format: :json } do
-    resources :projects
+    resources :projects, only: [:index, :show ]
+    resources :tags, only: [:index]
   end
 end
