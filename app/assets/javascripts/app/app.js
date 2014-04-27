@@ -1,9 +1,11 @@
-var app = angular.module('portfolio', ['ngRoute', 'ngResource'])
+var app = angular.module('portfolio', ['ngRoute', 'ngResource', 'iso.directives'])
   .config(function($routeProvider){
     $routeProvider
       .when('/', {
-        templateUrl: '/projects.html',
-        controller: 'ProjectsController'
+        templateUrl: '/projects/index.html',
+      })
+      .when('/projects/:id', {
+        templateUrl: '/projects/show.html'
       })
       .otherwise({redirectTo: '/'});
 });
