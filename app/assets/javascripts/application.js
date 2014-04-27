@@ -5,6 +5,7 @@
 //= require angular-resource
 //= require imagesloaded.pkgd
 //= require isotope.pkgd
+//= require masonry-horizontal
 //= require app/app
 //= require app/services
 //= require app/controllers
