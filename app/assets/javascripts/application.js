@@ -3,11 +3,12 @@
 //= require angular-route
 //= require angular-animate
 //= require angular-resource
-//= require jquery.isotope
-//= require angular-isotope
+//= require imagesloaded.pkgd
+//= require isotope.pkgd
 //= require app/app
 //= require app/services
-//= require_tree .
+//= require app/controllers
+
 
 if (!Array.prototype.last){
     Array.prototype.last = function(){

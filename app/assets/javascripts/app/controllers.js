@@ -1,13 +1,14 @@
-app.controller('projects#index', function($scope, $location, Project, $http, $q) {
+app.controller('projects#index', function($scope, $location, Project) {
   $scope.projects = Project.query();
   
 
   imagesLoaded( document.querySelector('#isotope-container'), function( instance ) {
-    console.log('all images are loaded');
-    
     setTimeout(function(){
-      $scope.$emit('iso-init');
+      $('#isotope-container').isotope({
+        itemSelector: '.project'
+      });
     }, 100)
+    
   });
 
   $scope.filterList = function(id){
