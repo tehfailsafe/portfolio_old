@@ -9,7 +9,9 @@
 //= require app/app
 //= require app/services
 //= require app/controllers
+//= require foundation
 
+$(document).foundation();
 
 if (!Array.prototype.last){
     Array.prototype.last = function(){

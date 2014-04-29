@@ -12,10 +12,15 @@
     script type="text/javascript" try{Typekit.load();}catch(e){}
 
   body
-    div(ng-controller="tags#index")
-      #sidebar.large-2.columns = link_to root_path do
-        = image_tag("header_Logo.png")
-        .button.item(ng-click="filterList(0)") All
-        .button.item(ng-repeat="tag in tags" ng-click="") {{ tag.name}}
-      #content.large-10.columns
-        div data-ng-view=""
+    / div(ng-controller="tags#index")
+    /   #sidebar.medium-3.columns
+    /     logo = link_to root_path do
+    /       = image_tag("header_Logo.png")
+    /     button(ng-click='filterList("all")')All
+    /     button(ng-repeat="tag in tags" ng-click="filterList(tag.id)") {{ tag.name}}
+      / #content.medium-9.columns
+      /     div ng-view=""
+
+
+
+    #content ng-view=""

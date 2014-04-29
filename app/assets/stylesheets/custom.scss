@@ -1,6 +1,8 @@
 @import "foundation/functions";
+@import "compass";
 $primary: #38f;
 $bg-color: #333;
+$muted: #656;
 $shadow: 0 1px 2px $bg-color;
 
 body{
@@ -8,7 +10,91 @@ body{
   font-family: 'proxima-nova';
 }
 
-#content { 
+html, body, #sidebar{
+  height:100%;
+}
+
+.menu-button{
+  position: absolute;
+  top:20px;
+  left:20px;
+  background-color: #333;
+  padding:20px;
+  z-index: 999;
+}
+
+
+aside{
+  padding-right:1.5em;
+  padding-top:5em;
+  text-align: right;
+  color: $muted;
+  #filters{
+    float:right;
+    width:160px;
+
+    #logo{
+      margin-bottom: 37px;
+    }
+
+    .filter-header{
+      text-transform: uppercase;
+      font-size:12px;
+      border-bottom: 1px solid $muted;
+      margin-bottom: 20px;
+    }
+
+    .filter{
+      color: #957;
+      display: block;
+      line-height: 22px;
+    }
+
+    .filter:hover{
+      color: #fff;
+    }
+
+    .filter:hover:before{
+      content: ":: "
+    }
+  }
+}
+
+#menu-toggle{
+  position: absolute;
+  height:2.5em;
+  width: 2.5em;
+  background-color: #333;
+  z-index: 999;
+  font-size:1.25em;
+  padding:.75em;
+
+  .border-menu{
+    position: relative;
+}
+
+  .border-menu:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0.75em;
+    height: 0.125em;
+    border-top: 0.375em double #fff;
+    border-bottom: 0.125em solid #fff;
+    box-sizing: content-box;
+  }
+}
+
+.move-right .exit-off-canvas{
+  // background:rgba(56, 43, 53  , 0.35);
+  background: none;
+  box-shadow: -5px 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.left-off-canvas-menu{
+  background-color: #333;
+  @include background-image(linear-gradient(left top,  #382b35 0%,#232323 75%));
 
 }
 
@@ -26,31 +112,8 @@ body{
   }
 }
 
-.filter{
-  margin-left: 10px;
-  margin-bottom: 20px;
-
-  .item {
-    cursor: pointer;
-    background-color: #999;
-    padding:10px 20px;
-    display:inline-block;
-    color:#fff;
-    margin-right:10px;
-    float:left;
-  }
-
-  .active{
-    background-color: $primary;
-  }
-
-
-}
-
 #isotope-container{
-  .columns{
-    padding:0;
-  }
+  opacity: 0;
 }
 
 .project {

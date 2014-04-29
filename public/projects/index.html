@@ -1,0 +1,31 @@
+
+<div data-offcanvas="" ng-controller="projects#index" class="off-canvas-wrap">
+  <div class="inner-wrap"><a id="menu-toggle" class="left-off-canvas-toggle"><span class="border-menu"></span></a>
+    <aside class="left-off-canvas-menu">
+      <div id="filters"><img id="logo" src="/assets/logo.png"/>
+        <div class="filter-header">Work</div>
+        <div ng-click="filterList(&quot;all&quot;)" class="filter">All</div>
+        <div ng-repeat="tag in tags" ng-click="filterList(tag.id)" class="filter">{{ tag.name}}</div>
+      </div>
+    </aside>
+    <div id="isotope-container" class="small-12 columns">
+      <div ng-repeat="project in projects | filter: {tag_ids: activeTag}" ng-click="selectItem(project)" class="project medium-4 columns">
+        <div class="overlay">
+          <div class="project_title">{{ project.title }}</div>
+        </div><img ng-src="assets/{{  project.thumbnail }}"/>
+      </div>
+    </div><a class="exit-off-canvas"></a>
+  </div>
+</div>
+<script>
+  imagesLoaded( document.querySelector('#isotope-container'), function() {
+    setTimeout(function(){
+      var grid = $('#isotope-container')
+      grid.isotope({
+        itemSelector: '.project'
+      });
+      grid.css({opacity: 1});
+    }, 100)
+    
+  });
+</script>

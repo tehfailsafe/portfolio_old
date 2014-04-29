@@ -18,6 +18,7 @@ gem 'acts-as-taggable-on'
 gem 'angularjs-rails', '>= 1.2.0.rc1'
 gem 'ngmin-rails'
 gem 'active_model_serializers'
+gem 'compass-rails'
 
 
 

@@ -1,0 +1,31 @@
+.off-canvas-wrap(data-offcanvas="" ng-controller="projects#index")
+  .inner-wrap
+    a#menu-toggle.left-off-canvas-toggle
+      span.border-menu
+    aside.left-off-canvas-menu
+      #filters
+        img#logo(src="/assets/logo.png")
+
+        .filter-header Work
+        .filter(ng-click='filterList("all")') All
+        .filter(ng-repeat="tag in tags" ng-click="filterList(tag.id)") {{ tag.name}}
+    #isotope-container.small-12.columns
+      .project.medium-4.columns(ng-repeat="project in projects | filter: {tag_ids: activeTag}" ng-click="selectItem(project)" )
+          .overlay
+            .project_title {{ project.title }}
+          img(ng-src='assets/{{  project.thumbnail }}')
+    a.exit-off-canvas
+
+
+
+script. 
+  imagesLoaded( document.querySelector('#isotope-container'), function() {
+    setTimeout(function(){
+      var grid = $('#isotope-container')
+      grid.isotope({
+        itemSelector: '.project'
+      });
+      grid.css({opacity: 1});
+    }, 100)
+    
+  });
