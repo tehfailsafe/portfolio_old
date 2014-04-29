@@ -18,15 +18,13 @@
   </div>
 </div>
 <script>
-  $(window).load(function(){
-    imagesLoaded( document.querySelector('#isotope-container'), function() {
-      setTimeout(function(){
-        var grid = $('#isotope-container')
-        grid.isotope({
-          itemSelector: '.project'
-        });
-        grid.css({opacity: 1});
-      }, 500)
-    });
-  })
+  imagesLoaded( document.querySelector('#isotope-container'), function() {
+    setTimeout(function(){
+      var grid = $('#isotope-container')
+      grid.isotope({
+        itemSelector: '.project'
+      });
+      grid.css({opacity: 1});
+    }, 1000)
+  });
 </script>
