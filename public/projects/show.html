@@ -1,4 +1,8 @@
 
 <div ng-controller="projects#show" class="row">
-  <div class="small-12 columns">{{ project.title }}</div>
+  <div class="large-12 columns">
+    <div id="project-show">{{ project.content }}</div>
+  </div>
 </div>
+<div id="skrim"></div>
+<div id="project-image" ng-controller="projects#show" style="background:url(&quot;/assets/{{project.thumbnail}}&quot;) no-repeat center center;">&nbsp;</div>

@@ -13,6 +13,8 @@ app.controller('projects#index', function($scope, $location, Project, Tag) {
   }
 });
 
-app.controller('projects#show', function($scope, $routeParams, Project){
-  $scope.project = Project.get({id: $routeParams.id})
+app.controller('projects#show', function($scope, $routeParams, Project, $sce){
+  var project = Project.get({id: $routeParams.id});
+  $scope.project = project;
+  $scope.videourl = $sce.trustAsResourceUrl("//player.vimeo.com/video/");
 });
