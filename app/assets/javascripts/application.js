@@ -3,6 +3,7 @@
 //= require angular-route
 //= require angular-animate
 //= require angular-resource
+//= require angular-sanitize
 //= require imagesloaded.pkgd
 //= require isotope.pkgd
 //= require masonry-horizontal

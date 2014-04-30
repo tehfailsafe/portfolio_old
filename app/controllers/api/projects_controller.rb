@@ -3,7 +3,7 @@ class Api::ProjectsController < ApplicationController
 
   def index
     # respond_with(Project.all)
-    render json: Project.all, root: false
+    render json: Project.order(:id), root: false
   end
   
   def show

@@ -1,4 +1,4 @@
-var app = angular.module('portfolio', ['ngRoute', 'ngResource'])
+var app = angular.module('portfolio', ['ngRoute', 'ngResource', 'ngSanitize'])
   .config(function($routeProvider){
     $routeProvider
       .when('/', {
@@ -8,10 +8,11 @@ var app = angular.module('portfolio', ['ngRoute', 'ngResource'])
         templateUrl: '/projects/show.html'
       })
       .otherwise({redirectTo: '/'});
+
 });
 
 
-app.config(function($httpProvider) {
+app.config(function($httpProvider, $sceProvider) {
   var authToken = $("meta[name=\"csrf-token\"]").attr("content");
   return $httpProvider.defaults.headers.common["X-CSRF-TOKEN"] = authToken;
 });

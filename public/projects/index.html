@@ -1,15 +1,16 @@
 
-<div data-offcanvas="" ng-controller="projects#index" class="off-canvas-wrap">
-  <div class="inner-wrap"><a id="menu-toggle" class="left-off-canvas-toggle"><span class="border-menu"></span></a>
-    <aside class="left-off-canvas-menu">
+<div id="loading"><img src="/assets/loading.gif"/></div>
+<div data-offcanvas="" ng-controller="projects#index" class="full off-canvas-wrap">
+  <div class="full inner-wrap"><a id="menu-toggle" class="left-off-canvas-toggle"><span class="border-menu"></span></a>
+    <aside class="full left-off-canvas-menu">
       <div id="filters"><img id="logo" src="/assets/logo.png"/>
         <div class="filter-header">Work</div>
-        <div ng-click="filterList(&quot;all&quot;)" class="filter">All</div>
-        <div ng-repeat="tag in tags" ng-click="filterList(tag.id)" class="filter">{{ tag.name}}</div>
+        <div ng-click="filterList(&quot;all&quot;)" ng-class="{active: selected == 'all'}" class="filter">All</div>
+        <div ng-repeat="tag in tags" ng-click="filterList(tag.id, $index)" ng-class="{active: $index == selected}" class="filter">{{ tag.name}}</div>
       </div>
     </aside>
-    <div id="isotope-container" class="small-12 columns">
-      <div ng-repeat="project in projects | filter: {tag_ids: activeTag}" ng-click="selectItem(project)" class="project medium-4 columns">
+    <div id="isotope-container" class="full small-12 columns">
+      <div ng-repeat="project in projects" ng-click="selectItem(project)" class="project medium-4 columns {{project.tag_ids.join(' ')}}">
         <div class="overlay">
           <div class="project_title">{{ project.title }}</div>
         </div><img ng-src="assets/{{  project.thumbnail }}"/>
@@ -21,11 +22,13 @@
   $(document).ready(function(){
     setTimeout(function(){
       $('#isotope-container').imagesLoaded(function() {
-          var grid = $('#isotope-container')
+          var grid = $('#isotope-container');
           grid.isotope({
             itemSelector: '.project'
           });
+          $('#loading').css("padding-top", "0px");
           grid.css({opacity: 1});
+          $('#menu-toggle').css({ left: 0});
           
       });
     }, 2000);

@@ -1,5 +1,11 @@
-.row(ng-controller="projects#show")
-  .large-12.columns
-      #project-show {{ project.content }}
-#skrim
-#project-image(ng-controller="projects#show" style='background:url("/assets/{{project.thumbnail}}") no-repeat center center;') &nbsp;
+#content(ng-controller="projects#show")
+  #project-show.row
+    .large-12.columns
+      .video
+        iframe(ng-src="{{trust('//player.vimeo.com/video/' + project.videos[0].vimeoid)}}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen)
+  #skrim
+  #project-image(style='background:url("/assets/{{project.thumbnail}}") no-repeat center center;') &nbsp;
+
+  #close(ng-click="back()")
+
+

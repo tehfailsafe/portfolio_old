@@ -1,8 +1,13 @@
 
-<div ng-controller="projects#show" class="row">
-  <div class="large-12 columns">
-    <div id="project-show">{{ project.content }}</div>
+<div id="content" ng-controller="projects#show">
+  <div id="project-show" class="row">
+    <div class="large-12 columns">
+      <div class="video">
+        <iframe ng-src="{{trust('//player.vimeo.com/video/' + project.videos[0].vimeoid)}}" frameborder="0" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" allowfullscreen="allowfullscreen"></iframe>
+      </div>
+    </div>
   </div>
+  <div id="skrim"></div>
+  <div id="project-image" style="background:url(&quot;/assets/{{project.thumbnail}}&quot;) no-repeat center center;">&nbsp;</div>
+  <div id="close" ng-click="back()"></div>
 </div>
-<div id="skrim"></div>
-<div id="project-image" ng-controller="projects#show" style="background:url(&quot;/assets/{{project.thumbnail}}&quot;) no-repeat center center;">&nbsp;</div>
