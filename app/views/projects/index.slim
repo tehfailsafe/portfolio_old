@@ -17,7 +17,7 @@
 /           = image_tag project.thumbnail
 
 
-/ #loading <img src="/assets/loading.gif"/>
+#loading <img src="/assets/loading.gif"/>
 .full.off-canvas-wrap data-offcanvas=""
   .full.inner-wrap
     a#menu-toggle.left-off-canvas-toggle
@@ -25,10 +25,17 @@
     aside.full.left-off-canvas-menu
       #filters
         img#logo src="/assets/logo.png"
-        .filter-header Work
-        #all.filter All
-        - @tags.each do |tag|
-          .filter = content_tag( :span, tag.name, id: tag.id)
+        .filter-group
+          .filter-header Work
+          #all.filter All
+          - @tags.each do |tag|
+            .filter = content_tag( :span, tag.name, id: tag.id)
+        .filter-group
+          .filter-header About
+          .filter
+            a href='https://www.dropbox.com/s/eejr27rriuu5emu/resume.pdf' download="resume.pdf" Resume
+          .filter
+            a href='//www.linkedin.com/profile/view?id=4657236' Linkedin
     #isotope-container.full.small-12.columns
       - @projects.each do |project|
         .project.medium-4.columns class="#{project.tag_ids.join(' ')}"
@@ -41,16 +48,20 @@
 
 
 javascript:
-  $('#isotope-container').imagesLoaded(function() {
-    var grid = $('#isotope-container');
-    grid.isotope({
-      itemSelector: '.project'
+  $('document').ready(function(){
+    $('#isotope-container').imagesLoaded(function() {
+      setTimeout(function(){
+        var grid = $('#isotope-container');
+        grid.isotope({
+          itemSelector: '.project'
+        });
+        grid.css({opacity: 1});
+        $('#menu-toggle').css({ left: 0});
+        $('#loading').css({opactiy: 0})
+      }, 200);
     });
-    grid.css({opacity: 1});
-    $('#menu-toggle').css({ left: 0});
-
-  });
-  $(".filter").on("click", function(e){
-    var grid = $('#isotope-container');
-    e.target.id === 'all' ? grid.isotope({ filter: '*'}) : grid.isotope({filter: '.'+ e.target.id})
+    $(".filter").on("click", function(e){
+      var grid = $('#isotope-container');
+      e.target.id === 'all' ? grid.isotope({ filter: '*'}) : grid.isotope({filter: '.'+ e.target.id})
+    });
   });
