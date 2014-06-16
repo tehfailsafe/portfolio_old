@@ -1,14 +1,45 @@
-.projectitle
+#project-show
+  #close
   .row
-    large-12.columns
-      h2 = @project.title
-      p = @project.content
+    .large-12.columns
+      = render @videos
+      = render @photos
+  #blurred-background
+    #skrim
+    #project-image style='background:url("/assets/#{@project.thumbnail}") no-repeat center center;'
 
 
-#content.row
-  / .large-4.columns
-  /   p = @project.content
-  / .large-8.columns
-  .large-12.columns
-    = render @videos
-    = render @photos
+
+
+javascript:
+  $(document).ready(function(){
+    $('#project-show').imagesLoaded( function(){
+      $('#blurred-background').css({opacity: 1});
+      $('#close').css({top: 10 });
+      $('.video').css({opacity: 1, top: 0});
+      $('.photo').css({opacity: 1, top: 0});
+
+    });
+
+    $("#close").click(function(){
+      window.location = '/'
+    })
+
+  })
+
+
+
+/ .projectitle
+/   .row
+/     large-12.columns
+/       h2 = @project.title
+/       p = @project.content
+
+
+/ #content.row
+/   / .large-4.columns
+/   /   p = @project.content
+/   / .large-8.columns
+/   .large-12.columns
+/     = render @videos
+/     = render @photos

@@ -1,21 +1,56 @@
-#content.row
-  .filter.12.columns
-    .item.all.active All
-    - @tags.each do |tag|
-      .item class="#{tag.name.parameterize}" = tag.name
+/ #content.row
+/   .filter.12.columns
+/     .item.all.active All
+/     - @tags.each do |tag|
+/       .item class="#{tag.name.parameterize}" = tag.name
 
-  #loading.text-center
-    img src="http://jimpunk.net/Loading/wp-content/uploads/loading20.gif"
+/   #loading.text-center
+/     img src="http://jimpunk.net/Loading/wp-content/uploads/loading20.gif"
 
-  .large-12.columns.filterable-grid.fadeable
-    div ng-repeat="project in projects"
-    / - @projects.each do |project|
-    /   .project.medium-6.columns data-groups="#{ project.tags.map{|t| t.name.parameterize}}"
-    /     a href='#{project_path(project.id)}'
-    /       .overlay
-    /         .project_title = project.title
-    /       = image_tag project.thumbnail
-
-    .shuffle__sizer.medium-6.columns
+/   #isotope-container.large-12.columns.filterable-grid.fadeable
+/     / div ng-repeat="project in projects"
+/     - @projects.each do |project|
+/       .shuffle__sizer.project.medium-6.columns
+/         a href='#{project_path(project.id)}'
+/           .overlay
+/             .project_title = project.title
+/           = image_tag project.thumbnail
 
 
+/ #loading <img src="/assets/loading.gif"/>
+.full.off-canvas-wrap data-offcanvas=""
+  .full.inner-wrap
+    a#menu-toggle.left-off-canvas-toggle
+      span.border-menu
+    aside.full.left-off-canvas-menu
+      #filters
+        img#logo src="/assets/logo.png"
+        .filter-header Work
+        #all.filter All
+        - @tags.each do |tag|
+          .filter = content_tag( :span, tag.name, id: tag.id)
+    #isotope-container.full.small-12.columns
+      - @projects.each do |project|
+        .project.medium-4.columns class="#{project.tag_ids.join(' ')}"
+            a href="/projects/#{project.id}"
+              .overlay
+                .project_title = project.title
+              img src="assets/#{  project.thumbnail }"
+    a.exit-off-canvas
+
+
+
+javascript:
+  $('#isotope-container').imagesLoaded(function() {
+    var grid = $('#isotope-container');
+    grid.isotope({
+      itemSelector: '.project'
+    });
+    grid.css({opacity: 1});
+    $('#menu-toggle').css({ left: 0});
+
+  });
+  $(".filter").on("click", function(e){
+    var grid = $('#isotope-container');
+    e.target.id === 'all' ? grid.isotope({ filter: '*'}) : grid.isotope({filter: '.'+ e.target.id})
+  });

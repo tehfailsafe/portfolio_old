@@ -1,26 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="portfolio">
+<html lang="en">
   head
     meta charset="utf-8"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
     title Mike Johnson - Interactive Prototyper & Motion Designer
 
     = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
     = csrf_meta_tags
     script type="text/javascript" src="//use.typekit.net/kvd1lqt.js"
     script type="text/javascript" try{Typekit.load();}catch(e){}
 
   body
-    / div(ng-controller="tags#index")
-    /   #sidebar.medium-3.columns
-    /     logo = link_to root_path do
-    /       = image_tag("header_Logo.png")
-    /     button(ng-click='filterList("all")')All
-    /     button(ng-repeat="tag in tags" ng-click="filterList(tag.id)") {{ tag.name}}
-      / #content.medium-9.columns
-      /     div ng-view=""
+    / #content.full ng-view=""
+    = yield
 
-
-
-    #content.full ng-view=""
-    = javascript_include_tag "application"
