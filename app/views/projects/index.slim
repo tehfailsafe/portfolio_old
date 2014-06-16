@@ -50,15 +50,13 @@
 javascript:
   $('document').ready(function(){
     $('#isotope-container').imagesLoaded(function() {
-      setTimeout(function(){
-        var grid = $('#isotope-container');
-        grid.isotope({
-          itemSelector: '.project'
-        });
-        grid.css({opacity: 1});
-        $('#menu-toggle').css({ left: 0});
-        $('#loading').css({opactiy: 0})
-      }, 200);
+      var grid = $('#isotope-container');
+      grid.isotope({
+        itemSelector: '.project'
+      });
+      grid.css({opacity: 1});
+      $('#menu-toggle').css({ left: 0});
+      $('#loading').css({opactiy: 0})
     });
     $(".filter").on("click", function(e){
       var grid = $('#isotope-container');
